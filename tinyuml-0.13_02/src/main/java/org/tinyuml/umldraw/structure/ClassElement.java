@@ -82,8 +82,10 @@ implements LabelSource, UmlNode, UmlModelElementListener {
     attributesCompartment.setAlignment(Alignment.LEFT);
     operationsCompartment.setParent(this);
     operationsCompartment.setAlignment(Alignment.LEFT);
-    mainCompartment.setColor(Color.decode("#00CC00"));
-    operationsCompartment.setColor(Color.decode("#009900"));
+    /*mainCompartment.setColor(Color.decode("#00CC00"));
+    operationsCompartment.setColor(Color.decode("#009900"));*/
+    mainCompartment.setColor(new Color((int)(Math.random() * 0x1000000)));
+    operationsCompartment.setColor(new Color((int)(Math.random() * 0x1000000)));
   }
 
   /**
@@ -106,6 +108,9 @@ implements LabelSource, UmlNode, UmlModelElementListener {
     cloned.attributesCompartment.setParent(cloned);
     cloned.operationsCompartment = (Compartment) operationsCompartment.clone();
     cloned.operationsCompartment.setParent(cloned);
+    cloned.mainCompartment.setColor(new Color((int)(Math.random() * 0x1000000)));
+    cloned.operationsCompartment.setColor(new Color((int)(Math.random() * 0x1000000)));
+    
     return cloned;
   }
 

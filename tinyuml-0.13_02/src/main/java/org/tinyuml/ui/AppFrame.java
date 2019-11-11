@@ -585,6 +585,10 @@ implements EditorStateListener, AppCommandListener, SelectionListener {
     getCurrentEditor().deleteSelection();
   }
 
+  public void reColor() {
+    getCurrentEditor().recolorSelection();
+  }
+  
   /**
    * Shows the about dialog.
    */
