@@ -19,6 +19,7 @@
  */
 package org.tinyuml.draw;
 
+import java.awt.Color;
 import java.awt.geom.Dimension2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Point2D;
@@ -47,8 +48,17 @@ public abstract class AbstractNode implements Node {
     new ArrayList<NodeChangeListener>();
   private List<Connection> connections = new ArrayList<Connection>();
   private transient NodeSelection selection;
+  private Color color;
 
-  /**
+  public Color getColor() {
+	return color;
+}
+
+public void setColor(Color color) {
+	this.color = color;
+}
+
+/**
    * Writes the instance variables to the stream.
    * @param stream an ObjectOutputStream
    * @throws IOException if I/O error occured

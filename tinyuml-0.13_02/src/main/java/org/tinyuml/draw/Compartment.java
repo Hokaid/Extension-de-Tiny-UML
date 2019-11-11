@@ -199,7 +199,7 @@ implements CompositeNode {
       recalculateSize(drawingContext);
     }
     drawingContext.drawRectangle(getAbsoluteX1(), getAbsoluteY1(),
-      getSize().getWidth(), getSize().getHeight(), background);
+      getSize().getWidth(), getSize().getHeight(), getColor());
     for (Label label : labels) {
       // for now, we always center the labels
       if (alignment == Alignment.CENTERED) label.centerHorizontally();

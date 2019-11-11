@@ -19,6 +19,7 @@
  */
 package org.tinyuml.umldraw.structure;
 
+import java.awt.Color;
 import java.awt.geom.Dimension2D;
 import org.tinyuml.draw.AbstractCompositeNode;
 import org.tinyuml.draw.Compartment;
@@ -81,6 +82,8 @@ implements LabelSource, UmlNode, UmlModelElementListener {
     attributesCompartment.setAlignment(Alignment.LEFT);
     operationsCompartment.setParent(this);
     operationsCompartment.setAlignment(Alignment.LEFT);
+    mainCompartment.setColor(Color.decode("#00CC00"));
+    operationsCompartment.setColor(Color.decode("#009900"));
   }
 
   /**
