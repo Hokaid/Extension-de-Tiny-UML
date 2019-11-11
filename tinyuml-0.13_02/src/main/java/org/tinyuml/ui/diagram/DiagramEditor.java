@@ -231,6 +231,12 @@ DiagramEditorNotification, DiagramOperations, NodeChangeListener {
       /** {@inheritDoc} */
       public void actionPerformed(ActionEvent e) { deleteSelection(); }
     });
+    getInputMap(WHEN_IN_FOCUSED_WINDOW).put(KeyStroke.getKeyStroke("Q"),
+      "recolorSelection");
+    getActionMap().put("recolorSelection", new AbstractAction() {
+      /** {@inheritDoc} */
+      public void actionPerformed(ActionEvent e) { recolorSelection(); }
+    });
   }
 
   /**
@@ -250,6 +256,16 @@ DiagramEditorNotification, DiagramOperations, NodeChangeListener {
   public void deleteSelection() {
     Collection<DiagramElement> elements = getSelectedElements();
     execute(new DeleteElementCommand(this, elements));
+  }
+  
+  public void recolorSelection() {
+	
+    Collection<DiagramElement> elements = getSelectedElements();
+    for (DiagramElement e: elements) {
+    	((ClassElement)e).getMainCompartment().setColor(new Color((int)(Math.random() * 0x1000000)));
+    	((ClassElement)e).getOperationsCompartment().setColor(new Color((int)(Math.random() * 0x1000000)));
+    }
+    redraw();
   }
 
   // *************************************************************************
